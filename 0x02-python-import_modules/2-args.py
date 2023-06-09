@@ -3,7 +3,7 @@
 import sys
 """ program that prints the number of and the list of its arguments."""
 
-if __name__ == "__main__"
+if __name__ == "__main__":
 
     count = len(sys.argv) - 1
     if count == 0:
