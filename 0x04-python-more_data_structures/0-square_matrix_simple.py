@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 def square_matrix_simple(matrix=[]):
+    """This function computes the square of all integers"""
     new_matrix = matrix.copy()
 
     for row in range(len(matrix)):
