@@ -1,5 +1,4 @@
 # 2-matrix_divided.txt
-
 ==============================
 How to Use 2-matrix_divided.py
 ==============================
@@ -7,7 +6,10 @@ How to Use 2-matrix_divided.py
 This module defines a matrix division function ``matrix_divided(matrix, div)``.
 
 Usage
-*****
+=====
+
+``matrix_divided(...)`` returns a new matrix that is a copy of the parameter
+``matrix`` with all elements divided by ``div``.
 
 ::
 
@@ -162,4 +164,3 @@ is raised.
     >>> print(matrix_divided(matrix, 0))
     Traceback (most recent call last):
     ZeroDivisionError: division by zero
-
