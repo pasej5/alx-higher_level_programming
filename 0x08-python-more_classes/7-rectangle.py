@@ -5,7 +5,8 @@
 class Rectangle:
     """Rectangle class"""
 
-    number_of_instances = 0
+    number_of_instances = 0  # Public class attribute
+    print_symbol = "#"  # Public class attribute
 
     def __init__(self, width=0, height=0):
         """
@@ -14,11 +15,12 @@ class Rectangle:
         Args:
             width (int): The width of the rectangle (default is 0).
             height (int): The height of the rectangle (default is 0).
-            number_of_instances: the count incement count/decrement
+            number_of_instances: increment and decrement of instances.
+            print_symbol: symbol for string representation.
         """
         self.width = width
         self.height = height
-        Rectangle.number_of_instances += 1
+        Rectangle.number_of_instances += 1  # Increment the count
 
     @property
     def width(self):
@@ -64,7 +66,7 @@ class Rectangle:
             return ""
         rectangle_str = []
         for i in range(self.__height):
-            rectangle_str.append("#" * self.__width)
+            rectangle_str.append(str(Rectangle.print_symbol) * self.__width)
         return "\n".join(rectangle_str)
 
     def __repr__(self):
@@ -73,5 +75,5 @@ class Rectangle:
 
     def __del__(self):
         """Destructor method"""
-        Rectangle.number_of_instances -= 1
+        Rectangle.number_of_instances -= 1  # Decrement the count
         print("Bye rectangle...")
