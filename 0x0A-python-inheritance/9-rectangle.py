@@ -15,12 +15,10 @@ class Rectangle(BaseGeometry):
         Raises:
             ValueError: If either width or height is not a positive integer.
         """
-        self.__width = 0
-        self.__height = 0
-        self.integer_validator("width", width)
-        self.integer_validator("height", height)
         self.__width = width
         self.__height = height
+        super.integer_validator("width", width)
+        super.integer_validator("height", height)
 
     def area(self):
         """
