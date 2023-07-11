@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""Implementing area of the rectangle"""
+
+
 class Rectangle(BaseGeometry):
     def __init__(self, width, height):
         """
