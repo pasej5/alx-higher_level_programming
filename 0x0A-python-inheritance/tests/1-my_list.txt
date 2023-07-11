@@ -1,36 +1,37 @@
-1-my_list.txt test file
-======================
+# test_my_list.txt
+===========================
+How to Use test_my_list.py
+===========================
 
-case 0:
+This module tests the functionality of the MyList class.
 
->>> MyList = __import__('1-my_list').MyList
->>>>
-===========================================
-case 1:
+Usage
+=====
 
->>> my_list = MyList()
->>> my_list.append(1)
->>> my_list.append(4)
->>> my_list.append(2)
->>> my_list.append(3)
->>> my_list.append(5)
+1. Create an instance of the MyList class:
 
->>> print(my_list)
->>> [1, 4, 2, 3, 5]
->>> my_list.print_sorted()
->>> [1, 2, 3, 4, 5]
->>> print(my_list)
->>> [1, 4, 2, 3, 5]
+    >>> my_list = MyList()
 
-======================================
+2. Append elements to the list:
 
-case 2:
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
 
->>> MyList = __import__('1-my_list').MyList
->>> my_list.print_sorted()
-Traceback (most recent call last):
-  File "<stdin>", line 1, in <module>
-NameError: name 'my_list2' is not defined
->>>
+3. Print the list in its current state:
 
-=======================================
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
+4. Print the sorted list:
+
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+
+5. Verify that the list remains unchanged:
+
+    >>> print(my_list)
+    [1, 4, 2, 3, 5]
+
