@@ -3,9 +3,10 @@
 How to Use test_base_geometry.py
 ===========================
 
-This module tests the functionality of the BaseGeometry class.
+This module tests the functionality of the BaseGeometry and Rectangle classes.
 
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> Rectangle = __import__('7-base_geometry').Rectangle
 
 Usage
 =====
@@ -44,4 +45,52 @@ Usage
       File "7-base_geometry.py", line 20, in integer_validator
         raise TypeError(f"{name} must be an integer")
     TypeError: size must be an integer
+
+6. Create an instance of the Rectangle class:
+
+    >>> rectangle = Rectangle(5, 10)
+
+7. Verify the private width and height attributes:
+
+    >>> rectangle.__width
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    AttributeError: 'Rectangle' object has no attribute '__width'
+
+    >>> rectangle.__height
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    AttributeError: 'Rectangle' object has no attribute '__height'
+
+8. Call the area() method for the rectangle:
+
+    >>> rectangle.area()
+    50
+
+9. Create a new instance of the Rectangle class with invalid dimensions:
+
+    >>> invalid_rectangle = Rectangle(-5, "8")
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+      File "7-base_geometry.py", line 33, in __init__
+        self.integer_validator("width", width)
+      File "7-base_geometry.py", line 16, in integer_validator
+        raise TypeError(f"{name} must be an integer")
+    TypeError: width must be an integer
+
+    >>> invalid_rectangle = Rectangle(0, 8)
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+      File "7-base_geometry.py", line 33, in __init__
+        self.integer_validator("width", width)
+      File "7-base_geometry.py", line 20, in integer_validator
+        raise ValueError(f"{name} must be greater than 0")
+    ValueError: width must be greater than 0
+
+10. Verify that the new instance was not created:
+
+    >>> invalid_rectangle
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    NameError: name 'invalid_rectangle' is not defined
 
