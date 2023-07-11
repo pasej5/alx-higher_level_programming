@@ -5,6 +5,8 @@ How to Use test_my_list.py
 
 This module tests the functionality of the MyList class.
 
+>>> MyList = __import__('1-my_list').MyList
+
 Usage
 =====
 
@@ -34,4 +36,3 @@ Usage
 
     >>> print(my_list)
     [1, 4, 2, 3, 5]
-
