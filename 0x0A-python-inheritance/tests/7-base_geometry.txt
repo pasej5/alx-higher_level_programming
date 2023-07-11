@@ -1,96 +1,122 @@
-# test_base_geometry.txt
-===========================
-How to Use test_base_geometry.py
-===========================
+The ``7-base_geometry`` module
+==============================
 
-This module tests the functionality of the BaseGeometry and Rectangle classes.
+Using ``BaseGeometry``
+----------------------
 
->>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
->>> Rectangle = __import__('7-base_geometry').Rectangle
+Importing class from the module:
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-Usage
-=====
 
-1. Create an instance of the BaseGeometry class:
-
+Trying to print the area
     >>> bg = BaseGeometry()
-
-2. Call the area() method:
-
     >>> bg.area()
     Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-      File "7-base_geometry.py", line 12, in area
-        raise Exception("area() is not implemented")
+    	      ...
     Exception: area() is not implemented
 
-3. Call the integer_validator() method with a valid integer:
 
-    >>> bg.integer_validator("width", 10)
-
-4. Call the integer_validator() method with a value less than or equal to 0:
-
-    >>> bg.integer_validator("height", -5)
+Trying to pass a non-integer argument
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", "5")
     Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-      File "7-base_geometry.py", line 23, in integer_validator
-        raise ValueError(f"{name} must be greater than 0")
-    ValueError: height must be greater than 0
+    	      ...
+    TypeError: name must be an integer
 
-5. Call the integer_validator() method with a non-integer value:
 
-    >>> bg.integer_validator("size", "12")
+Trying to pass a boolean value
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", True)
     Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-      File "7-base_geometry.py", line 20, in integer_validator
-        raise TypeError(f"{name} must be an integer")
-    TypeError: size must be an integer
+    	      ...
+    TypeError: name must be an integer
 
-6. Create an instance of the Rectangle class:
 
-    >>> rectangle = Rectangle(5, 10)
-
-7. Verify the private width and height attributes:
-
-    >>> rectangle.__width
+Trying to pass a negative value
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", -5)
     Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-    AttributeError: 'Rectangle' object has no attribute '__width'
+    	      ...
+    ValueError: name must be greater than 0
 
-    >>> rectangle.__height
+
+Trying to pass a zero value
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", 0)
     Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-    AttributeError: 'Rectangle' object has no attribute '__height'
+    	      ...
+    ValueError: name must be greater than 0
 
-8. Call the area() method for the rectangle:
 
-    >>> rectangle.area()
-    50
+Passing a positive value
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", 5)
 
-9. Create a new instance of the Rectangle class with invalid dimensions:
 
-    >>> invalid_rectangle = Rectangle(-5, "8")
+Passing one argument to integer_validator
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name")
     Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-      File "7-base_geometry.py", line 33, in __init__
-        self.integer_validator("width", width)
-      File "7-base_geometry.py", line 16, in integer_validator
-        raise TypeError(f"{name} must be an integer")
-    TypeError: width must be an integer
+    	      ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
 
-    >>> invalid_rectangle = Rectangle(0, 8)
+Integer_validator with no arguments
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator()
     Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-      File "7-base_geometry.py", line 33, in __init__
-        self.integer_validator("width", width)
-      File "7-base_geometry.py", line 20, in integer_validator
-        raise ValueError(f"{name} must be greater than 0")
-    ValueError: width must be greater than 0
+    	      ...
+    TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
-10. Verify that the new instance was not created:
 
-    >>> invalid_rectangle
+Passing three arguments to integer_validator
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", 1, 2)
     Traceback (most recent call last):
-      File "<stdin>", line 1, in <module>
-    NameError: name 'invalid_rectangle' is not defined
+    	      ...
+    TypeError: integer_validator() takes 3 positional arguments but 4 were given
 
+
+Passing one argument to area method
+    >>> bg = BaseGeometry()
+    >>> bg.area(5)
+    Traceback (most recent call last):
+    	      ...
+    TypeError: area() takes 1 positional argument but 2 were given
+
+Passing two arguments to area method
+    >>> bg = BaseGeometry()
+    >>> bg.area(5, 5)
+    Traceback (most recent call last):
+    	      ...
+    TypeError: area() takes 1 positional argument but 3 were given
+
+Passing tuple to method
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("age", (4,))
+    Traceback (most recent call last):
+    	      ...
+    TypeError: age must be an integer
+
+
+Passing list to method
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("age", [3])
+    Traceback (most recent call last):
+    	      ...
+    TypeError: age must be an integer
+
+
+Passing dict to method
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("age", {3, 4})
+    Traceback (most recent call last):
+              ...
+    TypeError: age must be an integer
+
+
+Passing None to method
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("age", None)
+    Traceback (most recent call last):
+              ...
+    TypeError: age must be an integer
