@@ -1,0 +1,46 @@
+# test_base_geometry.txt
+===========================
+How to Use test_base_geometry.py
+===========================
+
+This module tests the functionality of the BaseGeometry class.
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Usage
+=====
+
+1. Create an instance of the BaseGeometry class:
+
+    >>> bg = BaseGeometry()
+
+2. Call the area() method:
+
+    >>> bg.area()
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+      File "7-base_geometry.py", line 12, in area
+        raise Exception("area() is not implemented")
+    Exception: area() is not implemented
+
+3. Call the integer_validator() method with a valid integer:
+
+    >>> bg.integer_validator("width", 10)
+
+4. Call the integer_validator() method with a value less than or equal to 0:
+
+    >>> bg.integer_validator("height", -5)
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+      File "7-base_geometry.py", line 23, in integer_validator
+        raise ValueError(f"{name} must be greater than 0")
+    ValueError: height must be greater than 0
+
+5. Call the integer_validator() method with a non-integer value:
+
+    >>> bg.integer_validator("size", "12")
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+      File "7-base_geometry.py", line 20, in integer_validator
+        raise TypeError(f"{name} must be an integer")
+    TypeError: size must be an integer
