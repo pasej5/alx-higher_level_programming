@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Rturns True or false if the object ids an instance"""
+"""Returns True or False if the object is an instance"""
 
 
 def inherits_from(obj, a_class):
@@ -17,6 +17,6 @@ def inherits_from(obj, a_class):
         that inherited (directly or indirectly) from
         the specified class; False otherwise.
     """
-    if issubclass(type(obj),a_class) and type(obj) != a_class):
+    if issubclass(type(obj), a_class) and type(obj) != a_class:
         return True
     return False
