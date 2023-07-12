@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-"""Function that writes a string to a text file (UTF-8) and returns the number of characters written."""
+"""Function that writes a string to a text file (UTF-8)
+and returns the number of characters written."""
 
 
 def write_file(filename="", text=""):
-    """Writes a text file in UTF-8 and returns the number of characters written.
+    """Writes a text file in UTF-8.
+    returns the number of characters written.
 
     Args:
         filename: The name of the file to write.
