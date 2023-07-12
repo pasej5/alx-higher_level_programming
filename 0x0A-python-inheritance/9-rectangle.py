@@ -44,4 +44,3 @@ class Rectangle(BaseGeometry):
             str: The string representation of the rectangle.
         """
         return f"[Rectangle] {self.__width}/{self.__height}"
-
