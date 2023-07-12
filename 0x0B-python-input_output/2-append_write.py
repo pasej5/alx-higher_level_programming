@@ -7,7 +7,7 @@ def append_write(filename="", text=""):
     """Appends a text file to UTF-8
 
     Args:
-        filename: the name of the file to write
+        filename: the name of the file to write.
         text: the text to write to the file
 
     Return:
@@ -15,5 +15,5 @@ def append_write(filename="", text=""):
     """
 
     with open(filename, mode='a', encoding='utf-8') as file
-    file.append(text)
+    file.write(text)
     return len(text)
