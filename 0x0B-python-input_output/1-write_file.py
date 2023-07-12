@@ -3,7 +3,7 @@
 
 
 def write_file(filename="", text=""):
-    """Writes a text and returns the number of char"""
+    """Writes a text fileutf-8 and returns the number of char"""
 
         with open(filename, mode='w', encoding='utf-8') as file:
             file.write(text)
