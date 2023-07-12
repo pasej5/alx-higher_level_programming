@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+""" class Student that defines a student by first name last name age"""
+
+
 class Student:
     """Class representing a student."""
 
