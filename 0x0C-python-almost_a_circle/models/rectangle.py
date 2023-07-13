@@ -12,7 +12,6 @@ class Rectangle(Base):
         """
         Initializes Rectangle with width, height, x, y and id.
 
-        
         Args:
         width (int): The width of the Rectangle.
         height (int): The height of the Rectangle.
@@ -32,10 +31,11 @@ class Rectangle(Base):
         """
         Getter for width attribute
 
-        Returns: 
+        Returns:
         int: The width of the rectangle
         """
         return self.__width
+
     @width.setter
     def width(self, value):
         """
@@ -64,6 +64,7 @@ class Rectangle(Base):
         int: The height of the rectangle
         """
         return self.__height
+
     @height.setter
     def height(self, value):
         """
@@ -92,6 +93,7 @@ class Rectangle(Base):
         int: The id of the rectangle
         """
         return self.__width
+
     @id.setter
     def id(self, value):
         """
@@ -120,6 +122,7 @@ class Rectangle(Base):
         int: The  x coodinate of the rectangle
         """
         return self.__x
+
     @width.setter
     def x(self, value):
         """
@@ -148,6 +151,7 @@ class Rectangle(Base):
         int: The y of the rectangle
         """
         return self.__y
+
     @y.setter
     def y(self, value):
         """
