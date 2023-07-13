@@ -49,7 +49,7 @@ class Rectangle(Base):
             ValueError: If value is less than or equa to 0
         """
 
-        if no is isinstance(value, int):
+        if not is isinstance(value, int):
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
@@ -78,13 +78,13 @@ class Rectangle(Base):
             ValueError: If value is less than or equa to 0
         """
 
-        if no is isinstance(value, int):
+        if not is isinstance(value, int):
             raise TypeError("height must be an integer")
         if value <= 0:
             raise ValueError("height must be > 0")
         self.__height = value
 
-        @property
+    @property
     def id(self):
         """
         Getter for id attribute
@@ -107,13 +107,13 @@ class Rectangle(Base):
             ValueError: If value is less than or equa to 0
         """
 
-        if no is isinstance(value, int):
+        if not is isinstance(value, int):
             raise TypeError("id must be an integer")
         if value <= 0:
             raise ValueError("id must be > 0")
         self.__id = value
 
-        @property
+    @property
     def x(self):
         """
         Getter for x attribute
@@ -136,13 +136,13 @@ class Rectangle(Base):
             ValueError: If value is less than or equa to 0
         """
 
-        if no is isinstance(value, int):
+        if not is isinstance(value, int):
             raise TypeError("x must be an integer")
         if value <= 0:
             raise ValueError("x must be > 0")
-        self.__ = value
+        self.__x = value
 
-        @property
+    @property
     def y(self):
         """
         Getter for y attribute
@@ -165,7 +165,7 @@ class Rectangle(Base):
             ValueError: If value is less than or equa to 0
         """
 
-        if no is isinstance(value, int):
+        if not is isinstance(value, int):
             raise TypeError("y must be an integer")
         if value <= 0:
             raise ValueError("y must be > 0")
