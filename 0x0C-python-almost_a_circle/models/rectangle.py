@@ -141,6 +141,6 @@ class Rectangle(Base):
             in order (id, width, height, x, y).
         """
         attributes = ['id', 'width', 'height', 'x', 'y']
-        for i, arg in enumerate(args):
-            if i < len(attributes):
-                setattr(self, attributes[i], arg)
+        for atrr, arg in enumerate(args):
+            if attr < len(attributes):
+                setattr(self, attributes[attr], arg)
