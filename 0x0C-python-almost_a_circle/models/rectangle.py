@@ -28,7 +28,8 @@ class Rectangle(Base):
     def __str__(self):
         """Returning the string reprsentation of the Rectangle"""
 
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+        return f"[Rectangle]({self.id}) {self.x}/{self.y} -
+        {self.width}/{self.height}"
 
     @property
     def width(self):
@@ -132,10 +133,12 @@ class Rectangle(Base):
 
     def update(self, *args):
         """
-        Assigning arguments to each variable of the Rectangle
+        Assigning arguments to each variable of
+        the Rectangle
 
         Args:
-            *args: Pointer to variable length arguments in order (id, width, height, x, y).
+            *args: Pointer to variable length arguments
+            in order (id, width, height, x, y).
         """
         attributes = ['id', 'width', 'height', 'x', 'y']
         for i, arg in enumerate(args):
