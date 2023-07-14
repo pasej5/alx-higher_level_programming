@@ -28,8 +28,7 @@ class Rectangle(Base):
     def __str__(self):
         """Returning the string reprsentation of the Rectangle"""
 
-        return f"[Rectangle]({self.id}) {self.x}/{self.y} -
-        {self.width}/{self.height}"
+        return f"[Rectangle]({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
 
     @property
     def width(self):
@@ -141,6 +140,6 @@ class Rectangle(Base):
             in order (id, width, height, x, y).
         """
         attributes = ['id', 'width', 'height', 'x', 'y']
-        for atrr, arg in enumerate(args):
-            if attr < len(attributes):
-                setattr(self, attributes[attr], arg)
+        for i, arg in enumerate(args):
+            if i < len(attributes):
+                setattr(self, attributes[i], arg)
