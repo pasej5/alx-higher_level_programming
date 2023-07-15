@@ -30,6 +30,21 @@ class Rectangle(Base):
 
         return f"[Rectangle]({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
 
+    def to_dictionary(self):
+        """
+        Returns the dictionary represantation of the Rectangle
+
+        Returns:
+            dict: The dictionary represantion of the Rectangle
+        """
+        return {
+            'id': self.id,
+            'width': self.width,
+            'height': self.height,
+            'x': self.x
+            'y': self.y
+        }
+
     @property
     def width(self):
         """
