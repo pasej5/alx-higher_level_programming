@@ -4,14 +4,14 @@ import json
 
 
 class Base:
-    """Base class for managing id tribute"""
+    """Base class for managing id attribute"""
     __nb_objects = 0
 
     def __init__(self, id=None):
-        """initializes Base instnce with id
+        """Initializes Base instance with id
 
         Args:
-            id (int): THis is set to None
+            id (int): This is set to None
 
         Return:
             Nothing
@@ -24,7 +24,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        """returns the JSON string representation of list dictionaries
+        """Returns the JSON string representation of list dictionaries
 
         Args:
             list_dictionaries (list): A list of dictionaries
@@ -37,13 +37,27 @@ class Base:
         else:
             return json.dumps(list_dictionaries)
 
-    @classmethod
-    def save_to_file(cls, list_objects):
-        """
-        Writes the JSON string represantation of list_objects to a file.
+    @staticmethod
+    def from_json_string(json_string):
+        """Returns the list represented by the JSON string json_string
 
         Args:
-            lis_objects (list): A list of the instances
+            json_string (str): A string representing a list of dictionaries
+
+        Returns:
+            list: The list represented by the JSON string
+        """
+        if json_string is None or len(json_string) == 0:
+            return []
+        else:
+            return json.loads(json_string)
+
+    @classmethod
+    def save_to_file(cls, list_objects):
+        """Writes the JSON string representation of list_objects to a file
+
+        Args:
+            list_objects (list): A list of the instances
 
         Returns:
             None
@@ -52,5 +66,5 @@ class Base:
         obj_list = []
         if list_objects is not None:
             obj_list = [obj.to_dictionary() for obj in list_objects]
-        with open(filename,"w") as file:
+        with open(filename, "w") as file:
             file.write(cls.to_json_string(obj_list))
