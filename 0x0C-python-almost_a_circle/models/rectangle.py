@@ -130,16 +130,19 @@ class Rectangle(Base):
         for _ in range(self.height):
             print(" " * self.x + "#" * self.width)
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
-        Assigning arguments to each variable of
-        the Rectangle
+        Updates the attributes of the Rectangle instance.
 
         Args:
-            *args: Pointer to variable length arguments
-            in order (id, width, height, x, y).
+        *args: Variable length argument list.
+        **kwargs: Arbitrary keyword arguments.
         """
-        attributes = ['id', 'width', 'height', 'x', 'y']
-        for i, arg in enumerate(args):
-            if i < len(attributes):
-                setattr(self, attributes[i], arg)
+        if args and len(args) > 0:
+            attrs = ["id", "width", "height", "x", "y"]
+            for i in range(len(args)):
+                if i < len(attrs):
+                    setattr(self, attrs[i], args[i])
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
