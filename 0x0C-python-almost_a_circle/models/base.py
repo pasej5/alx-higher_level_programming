@@ -68,3 +68,40 @@ class Base:
             obj_list = [obj.to_dictionary() for obj in list_objects]
         with open(filename, "w") as file:
             file.write(cls.to_json_string(obj_list))
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Returns an instance with all attributes already set.
+
+        Args:
+            **dictionary: Double pointer to a dictionary.
+
+        Returns:
+            Instance: An instance with all attributes set.
+        """
+        if cls.__name__ == "Rectangle":
+            dummy = cls(1, 1)
+        elif cls.__name__ == "Square":
+            dummy = cls(1)
+
+        dummy.update(**dictionary)
+        return dummy
+    
+    @classmethod
+    def load_from_file(cls):
+        """
+        Returns a list of instances from a JSON file.
+
+        Returns:
+            list: List of instances.
+        """
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, "r") as file:
+                json_string = file.read()
+                obj_list = cls.from_json_string(json_string)
+                instances = [cls.create(**obj) for obj in obj_list]
+                return instances
+        except FileNotFoundError:
+            return []
