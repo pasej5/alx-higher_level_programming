@@ -68,7 +68,6 @@ class Base:
             obj_list = [obj.to_dictionary() for obj in list_objects]
         with open(filename, "w") as file:
             file.write(cls.to_json_string(obj_list))
-
     @classmethod
     def create(cls, **dictionary):
         """
@@ -84,10 +83,14 @@ class Base:
             dummy = cls(1, 1)
         elif cls.__name__ == "Square":
             dummy = cls(1)
+        else:
+            dummy = cls()
 
-        dummy.update(**dictionary)
+        if hasattr(dummy, "update"):
+            dummy.update(**dictionary)
+
         return dummy
-    
+
     @classmethod
     def load_from_file(cls):
         """
