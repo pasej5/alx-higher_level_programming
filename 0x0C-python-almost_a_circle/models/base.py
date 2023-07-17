@@ -68,6 +68,7 @@ class Base:
             obj_list = [obj.to_dictionary() for obj in list_objects]
         with open(filename, "w") as file:
             file.write(cls.to_json_string(obj_list))
+
     @classmethod
     def create(cls, **dictionary):
         """
