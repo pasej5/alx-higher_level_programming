@@ -7,7 +7,10 @@ from models.rectangle import Rectangle
 class TestRectangle(unittest.TestCase):
     def test_area(self):
         """Test the area() method of Rectangle"""
-        # Test code for the area() method
+        rectangle = Rectangle(2, 4)
+        result = rectangle.area()
+        expected = 8
+        self.assertEqual(result, expected)
 
     def test_display(self):
         """Test the display() method of Rectangle"""
