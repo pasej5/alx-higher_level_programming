@@ -24,7 +24,6 @@ class TestRectangle(unittest.TestCase):
             output = captured_output.getvalue()
 
         expected = "###\n###\n###\n###\n"
-
         self.assertEqual(output, expected)
 
     def test_update(self):
@@ -36,6 +35,26 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(rectangle.height, 7)
         self.assertEqual(rectangle.x, 8)
         self.assertEqual(rectangle.y, 9)
+
+    def test_invalid_width(self):
+        """Test raising an exception for invalid width"""
+        with self.assertRaises(ValueError):
+            Rectangle(-2, 4)
+
+    def test_invalid_height(self):
+        """Test raising an exception for invalid height"""
+        with self.assertRaises(ValueError):
+            Rectangle(2, -4)
+
+    def test_invalid_x(self):
+        """Test raising an exception for invalid x-coordinate"""
+        with self.assertRaises(ValueError):
+            Rectangle(2, 4, -1, 0)
+
+    def test_invalid_y(self):
+        """Test raising an exception for invalid y-coordinate"""
+        with self.assertRaises(ValueError):
+            Rectangle(2, 4, 0, -1)
 
 
 if __name__ == '__main__':

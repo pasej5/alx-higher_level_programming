@@ -35,10 +35,10 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """
-        Returns the dictionary represantation of the Rectangle
+        Returns the dictionary representation of the Rectangle
 
         Returns:
-            dict: The dictionary represantion of the Rectangle
+            dict: The dictionary representation of the Rectangle
         """
         return {
             'id': self.id,
@@ -133,16 +133,15 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-        """computes and returns the area of the rectangle
+        """Computes and returns the area of the rectangle
 
         Returns:
-        int: The area of the rectangle.
+            int: The area of the rectangle.
         """
         return self.width * self.height
 
     def display(self):
-        """Method that prints in stdout the Rectangle
-        """
+        """Method that prints in stdout the Rectangle"""
         for _ in range(self.y):
             print()
         for _ in range(self.height):
@@ -153,8 +152,8 @@ class Rectangle(Base):
         Updates the attributes of the Rectangle instance.
 
         Args:
-        *args: Variable length argument list.
-        **kwargs: Arbitrary keyword arguments.
+            *args: Variable length argument list.
+            **kwargs: Arbitrary keyword arguments.
         """
         if args and len(args) > 0:
             attrs = ["id", "width", "height", "x", "y"]
