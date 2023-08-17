@@ -1,8 +1,7 @@
 -- Each record should display: <TV Show genre> - <Number of shows linked to this genre>
 -- First column must be called genre
 -- USE hbtn_0d_tvshows;
--- Second column must be called number_of_shows
--- Don’t display a genre that doesn’t have any shows linked
+-- Second column must be called number_of_show
 
 SELECT genres.genre AS genre, COUNT(tv_show_genres.id) AS number_of_shows
 FROM genres
