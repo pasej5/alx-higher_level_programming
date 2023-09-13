@@ -1,19 +1,13 @@
 #!/usr/bin/node
+const SquareParent = require('./5-square');
 
-const BaseSquare = require('./5-square');
-
-class Square extends BaseSquare {
-  constructor (size) {
-    super(size);
-  }
-
-  charPrint (c = 'X') {
-    let row = '';
-    for (let i = 0; i < this.size; i++) {
-      row += c;
+class Square extends SquareParent {
+  charPrint (c) {
+    if (c === undefined) {
+      c = 'X';
     }
-    for (let i = 0; i < this.size; i++) {
-      console.log(row);
+    for (let i = 0; i < this.height; i++) {
+      console.log(c.repeat(this.width));
     }
   }
 }
