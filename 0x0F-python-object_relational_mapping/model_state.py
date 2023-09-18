@@ -11,6 +11,14 @@ Base = declarative_base()
 
 
 class State(Base):
+    """
+    Represents a state in the database.
+
+    Attributes:
+        id (int): The primary key for the state record.
+        name (str): The name of the state.
+    """
+
     __tablename__ = 'states'
 
     id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
