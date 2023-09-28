@@ -1,26 +1,42 @@
-#!/bin/bash
+#!/usr/bin/env python3
+"""
+This script takes a URL as an argument, sends a request to the URL using the 'requests' library,
+and prints the size of the response body in bytes.
 
-# Check if a URL is provided as an argument
-if [ $# -ne 1 ]; then
-  echo "Usage: $0 <URL>"
-  exit 1
-fi
+Usage:
+    python3 script.py <URL>
 
-# Extract the URL from the command line argument
-url="$1"
+Example:
+    python3 script.py https://www.example.com
+"""
 
-# Use curl to send a request to the URL and save the response to a temporary file
-response=$(curl -s -o /tmp/curl_response "$url")
+import sys
+import requests
 
-# Check if the curl command was successful
-if [ $? -eq 0 ]; then
-  # Use the 'wc' command to count the number of bytes in the response body
-  body_size=$(wc -c < /tmp/curl_response)
-  echo "$body_size"
-else
-  echo "Error: Failed to retrieve the URL."
-  exit 1
-fi
+def main():
+    # Check if a URL is provided as an argument
+    if len(sys.argv) != 2:
+        print("Usage: python3 script.py <URL>")
+        sys.exit(1)
 
-# Clean up the temporary file
-rm -f /tmp/curl_response
+    # Extract the URL from the command line argument
+    url = sys.argv[1]
+
+    try:
+        # Send a request to the URL and save the response
+        response = requests.get(url)
+
+        # Check if the request was successful
+        if response.status_code == 200:
+            # Get the size of the response body in bytes
+            body_size = len(response.content)
+            print(body_size)
+        else:
+            print(f"Error: Failed to retrieve the URL (Status Code: {response.status_code})")
+            sys.exit(1)
+    except requests.exceptions.RequestException as e:
+        print(f"Error: {e}")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()
