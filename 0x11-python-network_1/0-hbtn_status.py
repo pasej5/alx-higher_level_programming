@@ -1,13 +1,11 @@
-#!/usr/bin/paython3
+#!/usr/bin/python3
+"""script to fetch a website"""
+
 import urllib.request
-""" Python script fetches a we page"""
-
-url = "https://alx-intranet.hbtn.io/status"
-
-with urllib.request.urlopen(url) as response:
-
-    html = response.read().decode('utf-8')
-print("Body response:")
-print("    - type:", type(html))
-print("    - content:", html)
-print("    - utf8 content:", html)
+if __name__ == "__main__":
+    with urllib.request.urlopen('https://alx-intranet.hbtn.io/status') as f:
+        r = f.read()
+    print('Body response:')
+    print('\t- type: {}'.format(type(r)))
+    print('\t- content: {}'.format(r))
+    print('\t- utf8 content: {}'.format(r.decode('utf-8')))
