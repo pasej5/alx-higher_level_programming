@@ -1,6 +1,6 @@
 #!/usr/bin/paython3
 import urllib.request
-
+""" Python script fetches a we page"""
 
 url = "https://alx-intranet.hbtn.io/status"
 
